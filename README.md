@@ -36,3 +36,16 @@ Null, undefined, false, "", -0, +0, NaN.
 
 10. What is a primitive datatype in Javascript?
 A primitive datatype is not an object, is immutable, and has no attributes/methods defined directly on it.
+
+11. JavaScript: What's the difference between HTML attribute and DOM property?
+*  Attributes are defined by HTML, all definitions inside HTML tag are attributes.
+  <div id="test" class="button" custom-attr="1"></div>
+  document.getElementById('test').attributes;
+  // return: [custom-attr="1", class="button", id="test"]
+*  The type of attributes is always string. For the DIV above, document.getElementById('test').getAttribute('custom-attr') or $('#test').attr('custom-attr') returns string: "1".
+*  Properties belong to DOM, the nature of DOM is an object in JavaScript. We can get and set properties as we do to a normal object in JavaScript and properties can be any types.
+*  Non-custom attributes have 1:1 mapping onto properties, like: id, class, title, etc.
+*  Non-custom propertiy (attribute) changes when corresponding attribute (property) changes in most cases.
+*  Attribute which has a default value doesn't change when corresponding property changes.
+Best Practice
+It is recommended to use property in JavaScript as it's much easier and faster. Especially for boolean type attributes like: "checked", "disabled" and "selected", browser automatically converts them into boolean type properties.
